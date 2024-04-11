@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Susanna">
+
+    <title>Carrito de la compra</title>
+</head>
+<body>
+
+<h1>Carrito de la compra</h1>
+
+<label for="producto1">Precio del producto 1:</label>
+<input type="number" id="producto1">
+
+<label for="producto2">Precio del producto 2:</label>
+<input type="number" id="producto2">
+
+<label for="producto3">Precio del producto 3:</label>
+<input type="number" id="producto3">
+
+<label for="producto4">Precio del producto 4:</label>
+<input type="number" id="producto4">
+
+<label for="producto5">Precio del producto 5:</label>
+<input type="number" id="producto5">
+
+<button onclick="calcularTotal()">Calcular total</button>
+
+<p id="precioTotal"></p>
+
+<script>
+function calcularTotal() {
+    // precios productos
+    var precioProducto1 = parseFloat(document.getElementById("producto1").value);
+    var precioProducto2 = parseFloat(document.getElementById("producto2").value);
+    var precioProducto3 = parseFloat(document.getElementById("producto3").value);
+    var precioProducto4 = parseFloat(document.getElementById("producto4").value);
+    var precioProducto5 = parseFloat(document.getElementById("producto5").value);
+
+    // Validation precios
+    if (isNaN(precioProducto1) || isNaN(precioProducto2) || isNaN(precioProducto3) || isNaN(precioProducto4) || isNaN(precioProducto5)) {
+        alert("Inserisci prezzi validi per tutti i prodotti.");
+        return;
+    }
+
+    //total
+    var total = precioProducto1 + precioProducto2 + precioProducto3 + precioProducto4 + precioProducto5;
+
+    // descuento if major 100
+    if (total >= 100) {
+        var sconto = total * 0.15;
+        var prezzoFinale = total - sconto;
+        document.getElementById("precioTotal").textContent = "Precio sin descuento: " + total.toFixed(2) + "€" + ", Precio con descuento: " + prezzoFinale.toFixed(2) + "€";
+    } else {
+        document.getElementById("precioTotal").textContent = "Total: " + total.toFixed(2) + "€";
+    }
+}
+</script>
+
+</body>
+</html>
+
+

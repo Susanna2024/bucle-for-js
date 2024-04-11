@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Imprimir números descendentes</title>
+</head>
+<body>
+
+<h1>Números descendentes entre 50 y 20</h1>
+<ul id="numerosDescendentes"></ul>
+
+<script>
+// Funcion para imprimir los numeros 50 - 20
+function imprimirNumerosDescendentes() {
+    var listaNumeros = document.getElementById("numerosDescendentes");
+
+    // bucle para imprimir
+    for (var i = 50; i >= 20; i--) {
+        var listItem = document.createElement("li");
+        listItem.textContent = i;
+        listaNumeros.appendChild(listItem);
+    }
+}
+
+// callback stamp
+imprimirNumerosDescendentes();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Imprimir números entre dos números</title>
+</head>
+<body>
+
+<h1>Imprimir números entre dos números</h1>
+
+<label for="numeroInicio">Número de inicio:</label>
+<input type="number" id="numeroInicio">
+
+<label for="numeroFin">Número de fin:</label>
+<input type="number" id="numeroFin">
+
+<button onclick="imprimirNumeros()">Imprimir números</button>
+
+<ul id="numerosImpresos"></ul>
+
+<script>
+function imprimirNumeros() {
+    var numeroInicio = parseInt(document.getElementById("numeroInicio").value);
+    var numeroFin = parseInt(document.getElementById("numeroFin").value);
+    var listaNumeros = document.getElementById("numerosImpresos");
+    
+    // validation
+    if (isNaN(numeroInicio) || isNaN(numeroFin)) {
+        alert("Inserisci numeri validi.");
+        return;
+    }
+
+    // validation if major 
+    if (numeroInicio > numeroFin) {
+        alert("Il numero di inizio deve essere minore o uguale al numero di fine.");
+        return;
+    }
+
+    // borrar numeros doble
+    listaNumeros.innerHTML = "";
+
+    // bucle num inicio y fin
+    var numeriStampati = ""; // guardar numeros
+
+    for (var i = numeroInicio; i <= numeroFin; i++) {
+        numeriStampati += i; // Concateniamo il numero corrente
+        if (i < numeroFin) {
+            numeriStampati += ", "; // add coma
+        }
+    }
+
+    listaNumeros.textContent = numeriStampati; //text
+}
+</script>
+
+</body>
+</html>
